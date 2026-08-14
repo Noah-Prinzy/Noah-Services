@@ -6,6 +6,8 @@ import ProjectCard from '../components/ProjectCard.jsx'
 import { services } from '../data/services.js'
 import { projects } from '../data/projects.js'
 
+const heroImage = 'https://images.unsplash.com/photo-1778146476147-5f8d4bd03c79?auto=format&fit=crop&w=1400&q=82'
+
 const capabilities = [
   { icon: MonitorSmartphone, title: 'Responsive by default', copy: 'Interfaces designed to work naturally across phones, tablets, and desktop screens.' },
   { icon: Code2, title: 'Built, not just mocked', copy: 'The focus is functional implementation: real routes, real forms, real API-ready user flows.' },
@@ -27,6 +29,13 @@ export default function Home() {
               <h1>I build digital products that <em>move ideas forward.</em></h1>
             </div>
             <div className="hero__side">
+              <div className="hero-image-card">
+                <img src={heroImage} alt="Developer workspace with a laptop displaying source code" />
+                <div className="hero-image-card__label">
+                  <span>Visual craft</span>
+                  <strong>Build · iterate · ship</strong>
+                </div>
+              </div>
               <p>I design and develop modern websites, web applications, PWAs, and software experiences for individuals and growing businesses.</p>
               <div className="hero__actions">
                 <Link to="/contact" className="button">Start a project <ArrowUpRight size={18} /></Link>
