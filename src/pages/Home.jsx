@@ -25,18 +25,18 @@ export default function Home() {
           <div className="hero__status"><span /> Uganda · Available for selected projects</div>
           <div className="hero__layout">
             <div className="hero__copy">
-              <p className="hero__kicker">Digital product developer</p>
+              <p className="hero__kicker">Hi, my name is Noah Katumba.</p>
               <h1>I build digital products that <em>move ideas forward.</em></h1>
             </div>
             <div className="hero__side">
               <div className="hero-image-card">
                 <img src={heroImage} alt="Developer workspace with a laptop displaying source code" />
                 <div className="hero-image-card__label">
-                  <span>Visual craft</span>
-                  <strong>Build · iterate · ship</strong>
+                  <span>Welcome</span>
+                  <strong>Let&apos;s build something useful</strong>
                 </div>
               </div>
-              <p>I design and develop modern websites, web applications, PWAs, and software experiences for individuals and growing businesses.</p>
+              <p>I&apos;m a developer based in Uganda. I help individuals and growing businesses turn ideas into modern websites, web applications, PWAs, and software experiences that are clear, responsive, and useful. Explore my work, see what I build, or tell me about a project you have in mind.</p>
               <div className="hero__actions">
                 <Link to="/contact" className="button">Start a project <ArrowUpRight size={18} /></Link>
                 <Link to="/work" className="button button--ghost">View my work</Link>
