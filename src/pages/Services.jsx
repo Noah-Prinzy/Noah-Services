@@ -4,7 +4,7 @@ import PageHero from '../components/PageHero.jsx'
 import ServiceCard from '../components/ServiceCard.jsx'
 import { services } from '../data/services.js'
 
-const servicesHeroImage = 'https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?auto=format&fit=crop&w=1800&q=80'
+const servicesHeroImage = '/illustrations/services-overview.svg'
 
 const process = [
   ['01', 'Tell me the idea', 'We clarify the problem, audience, important screens, technical needs, and what a successful result should do for you.'],
@@ -19,10 +19,10 @@ export default function Services() {
       <PageHero
         eyebrow="Services & pricing"
         title="Choose a clear starting point for what you want to build."
-        copy="The ranges below give you a realistic starting point without locking every project into one fixed price. Your final quote depends on the scope, features, integrations, content, timeline, and complexity of what you need."
+        copy="The ranges below give you a realistic starting picture. Your final quote depends on the scope, features, integrations, content, timeline, and complexity of the project."
         aside={<Link to="/contact" className="text-link">Not sure which service fits? Ask me <ArrowUpRight size={17} /></Link>}
         image={servicesHeroImage}
-        imagePosition="center 58%"
+        imagePosition="center"
       />
 
       <section className="section section--tight-top">
@@ -32,14 +32,14 @@ export default function Services() {
               <span className="eyebrow">Pick what matches your goal</span>
               <h2>Start with the outcome, not the technology.</h2>
             </div>
-            <p>Choose between a focused landing page, a full website, a custom app, or maintenance for something you already have. If you only have an idea and are not sure where it fits, I can help you work that out.</p>
+            <p>If you already know what you need, choose a service below. If you only have an idea, that is enough too — I can help you work out the right approach.</p>
           </div>
-          <div className="service-grid">
+          <div className="service-grid service-grid--illustrated">
             {services.map((service) => <ServiceCard key={service.id} service={service} />)}
           </div>
-          <div className="pricing-range-note">
-            <strong>About these ranges</strong>
-            <p>Prices vary with project scope, features, complexity, and integrations. A final quote is provided after we discuss your requirements. Larger applications can exceed the displayed range.</p>
+          <div className="service-pricing-guidance">
+            <strong>How pricing works</strong>
+            <p>These are price ranges, not fixed quotes. Your final price is confirmed after we discuss the exact pages, features, integrations, complexity, and timeline. Larger applications can exceed the displayed App range.</p>
           </div>
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function Services() {
         <div className="container pricing-note">
           <div>
             <span className="eyebrow">Need something different?</span>
-            <h2>Custom software doesn’t always fit neatly into a price card.</h2>
+            <h2>Custom software doesn’t always fit neatly inside a price card.</h2>
           </div>
           <div>
             <p>If your idea combines multiple systems, user roles, integrations, dashboards, databases, or a custom backend, send me the requirements and I’ll price the work around the real scope.</p>
