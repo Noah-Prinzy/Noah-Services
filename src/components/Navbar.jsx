@@ -5,8 +5,8 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 const navItems = [
   ['/', 'Home'],
   ['/services', 'Services'],
-  ['/work', 'Work'],
-  ['/about', 'About'],
+  ['/work', 'Portfolio'],
+  ['/about', 'About me'],
   ['/contact', 'Contact'],
 ]
 
@@ -57,6 +57,10 @@ export default function Navbar() {
 
       <div className={`mobile-menu ${open ? 'mobile-menu--open' : ''}`}>
         <nav className="container mobile-menu__inner" aria-label="Mobile navigation">
+          <div className="mobile-menu__intro">
+            <span>Explore</span>
+            <p>Services, selected work, background, and ways to get in touch.</p>
+          </div>
           {navItems.map(([to, label]) => (
             <NavLink key={to} to={to} className={({ isActive }) => `mobile-link ${isActive ? 'mobile-link--active' : ''}`}>
               {label}
