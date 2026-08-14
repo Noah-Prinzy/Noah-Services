@@ -4,14 +4,15 @@ A premium personal services and portfolio website for **Noah Katumba**, built wi
 
 ## What is included
 
-- Multi-page React interface with React Router
+- Multi-page React website with React Router
 - Home, Services, Work, About, Contact, and 404 routes
 - Responsive desktop/tablet/mobile layouts
 - Service catalogue with draft starting prices in UGX
 - Featured portfolio projects linked to Noah's public GitHub repositories
 - WhatsApp project-inquiry flow that prepares a client request and opens it in WhatsApp
 - SPA redirect rule for Netlify
-- SEO/social metadata, manifest, favicon, and security headers
+- SEO/social metadata, favicon, and security headers
+- No installable PWA setup for this website
 - No website payment processing; commercial discussions and payments occur outside the site
 
 ## Stack
@@ -69,7 +70,7 @@ The site currently uses the public email address from the connected GitHub profi
 noahprinzy@gmail.com
 ```
 
-Phone contact: 0784695549. LinkedIn is not included yet because no confirmed public profile URL has been supplied.
+WhatsApp contact: 0784695549. LinkedIn is not included yet because no confirmed public profile URL has been supplied.
 
 ## Featured work
 
