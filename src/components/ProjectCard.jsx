@@ -10,6 +10,16 @@ export default function ProjectCard({ project, featured = false }) {
         rel="noreferrer"
         aria-label={`Open the live ${project.title} website`}
       >
+        {project.imageUrl && (
+          <img
+            className="project-visual__image"
+            src={project.imageUrl}
+            alt={project.imageAlt}
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+        <span className="project-visual__scrim" />
         <span className="project-visual__index">{project.index}</span>
         <span className="project-visual__mark">{project.mark}</span>
         <span className="project-visual__line" />
