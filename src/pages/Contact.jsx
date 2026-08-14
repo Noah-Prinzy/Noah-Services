@@ -6,7 +6,7 @@ import { budgetOptions, services } from '../data/services.js'
 
 const WHATSAPP_NUMBER = '256784695549'
 const GMAIL_COMPOSE_URL = 'https://mail.google.com/mail/?view=cm&fs=1&to=noahprinzy@gmail.com'
-const contactHeroImage = 'https://images.unsplash.com/photo-1778146476147-5f8d4bd03c79?auto=format&fit=crop&w=1800&q=80'
+const contactHeroImage = '/illustrations/contact-conversation.svg'
 
 const initialState = {
   name: '',
@@ -71,7 +71,7 @@ export default function Contact() {
         title="Have an idea? Tell me what you want to build."
         copy="You do not need a perfect technical brief. Tell me the problem, the idea, or the outcome you want, and we can work out the right next step from there."
         image={contactHeroImage}
-        imagePosition="center 62%"
+        imagePosition="center"
       />
 
       <section className="section section--tight-top">
