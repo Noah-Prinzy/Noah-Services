@@ -6,8 +6,6 @@ import ProjectCard from '../components/ProjectCard.jsx'
 import { services } from '../data/services.js'
 import { projects } from '../data/projects.js'
 
-const heroImage = 'https://images.unsplash.com/photo-1778146476147-5f8d4bd03c79?auto=format&fit=crop&w=1400&q=82'
-
 const capabilities = [
   { icon: MonitorSmartphone, title: 'Responsive by default', copy: 'Interfaces designed to work naturally across phones, tablets, and desktop screens.' },
   { icon: Code2, title: 'Built, not just mocked', copy: 'The focus is functional implementation: real routes, real forms, real API-ready user flows.' },
@@ -16,15 +14,15 @@ const capabilities = [
 ]
 
 const visitorPaths = [
-  { icon: MonitorSmartphone, label: 'I need something built', copy: 'See websites, web apps, PWAs, prototypes, and starting prices.', to: '/services', action: 'Explore services' },
-  { icon: Briefcase, label: 'I want to see your work', copy: 'Open live projects and see the technologies behind them.', to: '/work', action: 'View portfolio' },
-  { icon: MessageCircle, label: 'I already have an idea', copy: 'Tell me what you want to build and continue the conversation on WhatsApp.', to: '/contact', action: 'Start a conversation' },
+  { icon: MonitorSmartphone, label: 'I need something built', copy: 'Explore landing pages, websites, apps, maintenance, and the current price ranges.', to: '/services', action: 'Explore services' },
+  { icon: Briefcase, label: 'I want to see your work', copy: 'Open live projects and see the technologies and systems behind them.', to: '/work', action: 'View portfolio' },
+  { icon: MessageCircle, label: 'I already have an idea', copy: 'Tell me what you want to build and continue the conversation directly on WhatsApp.', to: '/contact', action: 'Start a conversation' },
 ]
 
 export default function Home() {
   return (
     <>
-      <section className="hero">
+      <section className="hero hero--illustrated">
         <div className="hero__glow hero__glow--one" />
         <div className="hero__glow hero__glow--two" />
         <div className="container hero__inner">
@@ -35,14 +33,7 @@ export default function Home() {
               <h1>I build digital products that <em>move ideas forward.</em></h1>
             </div>
             <div className="hero__side">
-              <div className="hero-image-card">
-                <img src={heroImage} alt="Developer workspace with a laptop displaying source code" />
-                <div className="hero-image-card__label">
-                  <span>Welcome</span>
-                  <strong>Let&apos;s build something useful</strong>
-                </div>
-              </div>
-              <p>I&apos;m a developer based in Uganda. I help individuals and growing businesses turn ideas into modern websites, web applications, PWAs, and software experiences that are clear, responsive, and useful.</p>
+              <p>I&apos;m a developer based in Uganda. I help individuals and growing businesses turn ideas into landing pages, websites, apps, and useful software experiences that work clearly across devices.</p>
               <div className="hero__actions">
                 <Link to="/contact" className="button">Tell me your idea <ArrowUpRight size={18} /></Link>
                 <Link to="/work" className="button button--ghost">See what I&apos;ve built</Link>
@@ -51,14 +42,14 @@ export default function Home() {
           </div>
           <div className="hero__footer">
             <a href="#start-here" className="scroll-cue"><ArrowDown size={16} /> Start here</a>
-            <div className="hero__services-line">React · JavaScript · Kotlin · Swift · REST APIs</div>
+            <div className="hero__services-line">Landing Pages · Websites · Apps · Maintenance</div>
           </div>
         </div>
       </section>
 
       <section className="marquee" aria-label="Services overview">
         <div className="marquee__track">
-          <span>Websites</span><i>✦</i><span>Web Applications</span><i>✦</i><span>PWAs</span><i>✦</i><span>Mobile Prototypes</span><i>✦</i><span>UI Implementation</span><i>✦</i><span>API Integration</span><i>✦</i>
+          <span>Landing Pages</span><i>✦</i><span>Websites</span><i>✦</i><span>Apps</span><i>✦</i><span>Website & App Maintenance</span><i>✦</i><span>Responsive on Every Device</span><i>✦</i><span>Direct Project Inquiries</span><i>✦</i>
         </div>
       </section>
 
@@ -83,12 +74,12 @@ export default function Home() {
 
       <section className="section" id="services">
         <div className="container">
-          <SectionHeading eyebrow="What I build" title="Services designed around useful outcomes." copy="Choose a focused service or bring a custom idea. Every project starts with understanding what the product actually needs to achieve." />
+          <SectionHeading eyebrow="What I build" title="Choose the kind of digital product you need." copy="Start with the outcome rather than the technology. Each service below has a clear price range, and the final quote depends on the real scope of the project." />
           <div className="service-grid service-grid--home">
-            {services.slice(0, 4).map((service) => <ServiceCard key={service.id} service={service} compact />)}
+            {services.map((service) => <ServiceCard key={service.id} service={service} compact />)}
           </div>
           <div className="section-link-row">
-            <Link to="/services" className="button button--ghost">See all services & pricing <ArrowUpRight size={18} /></Link>
+            <Link to="/services" className="button button--ghost">See service details & pricing <ArrowUpRight size={18} /></Link>
           </div>
         </div>
       </section>
