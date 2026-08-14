@@ -4,7 +4,7 @@ import PageHero from '../components/PageHero.jsx'
 
 const WHATSAPP_URL = 'https://wa.me/256784695549'
 const GMAIL_COMPOSE_URL = 'https://mail.google.com/mail/?view=cm&fs=1&to=noahprinzy@gmail.com'
-const aboutHeroImage = 'https://images.unsplash.com/photo-1559842135-8d5e4214ae77?auto=format&fit=crop&w=1800&q=80'
+const aboutHeroImage = '/illustrations/hero-digital-studio.svg'
 
 const stackGroups = [
   ['Frontend', ['React', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Jetpack Compose', 'SwiftUI']],
@@ -20,7 +20,7 @@ export default function About() {
         title="I’m Noah Katumba — a developer who likes understanding the whole product."
         copy="I’m based in Uganda and work across frontend, backend, mobile, databases, APIs, and deployment. I enjoy turning an idea into something people can actually open, understand, and use."
         image={aboutHeroImage}
-        imagePosition="center 56%"
+        imagePosition="center"
       />
 
       <section className="section section--tight-top">
