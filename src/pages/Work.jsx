@@ -4,7 +4,7 @@ import PageHero from '../components/PageHero.jsx'
 import ProjectCard from '../components/ProjectCard.jsx'
 import { projects } from '../data/projects.js'
 
-const workHeroImage = 'https://images.unsplash.com/photo-1753715613434-9c7cb58876b9?auto=format&fit=crop&w=1800&q=80'
+const workHeroImage = '/illustrations/portfolio-showcase.svg'
 
 export default function Work() {
   return (
@@ -15,7 +15,7 @@ export default function Work() {
         copy="These projects show the kind of work I do across interfaces, APIs, databases, authentication, deployment, and responsive product experiences. Open a live project to experience it, or view the code on GitHub."
         aside={<a className="text-link" href="https://github.com/Noah-Prinzy" target="_blank" rel="noreferrer"><Github size={17} /> Explore my GitHub profile</a>}
         image={workHeroImage}
-        imagePosition="center 52%"
+        imagePosition="center"
       />
       <section className="section section--tight-top">
         <div className="container">
