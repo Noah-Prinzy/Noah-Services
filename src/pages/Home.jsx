@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowUpRight, BriefcaseBusiness, Code2, Layers3, MessageCircle, MonitorSmartphone, Sparkles } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Briefcase, Code2, Layers3, MessageCircle, MonitorSmartphone, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import SectionHeading from '../components/SectionHeading.jsx'
 import ServiceCard from '../components/ServiceCard.jsx'
@@ -17,7 +17,7 @@ const capabilities = [
 
 const visitorPaths = [
   { icon: MonitorSmartphone, label: 'I need something built', copy: 'See websites, web apps, PWAs, prototypes, and starting prices.', to: '/services', action: 'Explore services' },
-  { icon: BriefcaseBusiness, label: 'I want to see your work', copy: 'Open live projects and see the technologies behind them.', to: '/work', action: 'View portfolio' },
+  { icon: Briefcase, label: 'I want to see your work', copy: 'Open live projects and see the technologies behind them.', to: '/work', action: 'View portfolio' },
   { icon: MessageCircle, label: 'I already have an idea', copy: 'Tell me what you want to build and continue the conversation on WhatsApp.', to: '/contact', action: 'Start a conversation' },
 ]
 
