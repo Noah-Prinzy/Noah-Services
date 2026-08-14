@@ -1,0 +1,270 @@
+/* Softer typography + Pinterest-inspired illustration layer ---------------- */
+:root {
+  font-family: 'Nunito Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body,
+button,
+input,
+textarea,
+select,
+.nav-link,
+.mobile-link,
+.button {
+  font-family: 'Nunito Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+h1,
+h2,
+h3,
+.brand__text,
+.hero__kicker,
+.section-heading h2,
+.page-hero h1,
+.callout h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: 'SOFT' 80, 'WONK' 1;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+
+.hero h1 {
+  letter-spacing: -.048em;
+  line-height: .93;
+}
+
+.hero h1 em {
+  color: var(--accent);
+  -webkit-text-stroke: 0;
+  font-style: italic;
+  font-weight: 550;
+}
+
+.hero__kicker {
+  font-size: 1rem;
+  letter-spacing: .02em;
+  text-transform: none;
+  color: #dce6d6;
+}
+
+.section-heading h2,
+.page-hero h1,
+.callout h2,
+.split-section__intro h2,
+.home-paths__heading h2,
+.ux-intro-row h2 {
+  letter-spacing: -.038em;
+}
+
+/* Home hero: illustration becomes the atmosphere, not a separate card. */
+.hero--illustrated::after {
+  opacity: 1;
+  background:
+    linear-gradient(90deg, rgba(7,10,15,.98) 0%, rgba(7,10,15,.90) 42%, rgba(7,10,15,.50) 100%),
+    linear-gradient(180deg, rgba(7,10,15,.22), rgba(7,10,15,.80)),
+    url('/illustrations/hero-digital-studio.svg') 58% 50% / cover no-repeat;
+}
+
+.hero--illustrated .hero__layout {
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, .58fr);
+}
+
+.hero--illustrated .hero__side {
+  padding: 26px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 22px;
+  background: rgba(10,13,18,.44);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 24px 70px rgba(0,0,0,.18);
+}
+
+.hero--illustrated .hero__side > p {
+  color: #d4dae2;
+}
+
+/* Service card illustrations ------------------------------------------------ */
+.service-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 82% 12%, rgba(98,87,255,.10), transparent 34%),
+    radial-gradient(circle at 18% 22%, rgba(168,255,120,.06), transparent 30%);
+}
+
+.service-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.service-card__visual {
+  height: 220px;
+  margin: -2px -6px 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.008)),
+    #0d1219;
+}
+
+.service-card__visual img {
+  width: 108%;
+  max-width: none;
+  height: 108%;
+  object-fit: contain;
+  filter: saturate(.96) contrast(1.02);
+  transition: transform .6s cubic-bezier(.2,.7,.2,1), filter .3s ease;
+}
+
+.service-card:hover .service-card__visual img {
+  transform: scale(1.035) translateY(-2px);
+  filter: saturate(1.06) contrast(1.03);
+}
+
+.service-card__copy h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.85rem, 2.5vw, 2.7rem);
+  font-weight: 600;
+  letter-spacing: -.035em;
+}
+
+.service-card__price {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+
+.service-card--compact {
+  min-height: 560px;
+}
+
+.service-card--compact .service-card__visual {
+  height: 180px;
+}
+
+.service-card--landing-page .service-card__visual {
+  background: radial-gradient(circle at 72% 34%, rgba(168,255,120,.09), transparent 38%), #0d1219;
+}
+
+.service-card--website .service-card__visual {
+  background: radial-gradient(circle at 74% 28%, rgba(98,87,255,.14), transparent 40%), #0d1219;
+}
+
+.service-card--app .service-card__visual {
+  background: radial-gradient(circle at 70% 35%, rgba(117,168,255,.10), transparent 42%), #0d1219;
+}
+
+.service-card--maintenance .service-card__visual {
+  background: radial-gradient(circle at 72% 30%, rgba(168,255,120,.08), transparent 40%), #0d1219;
+}
+
+.service-grid--illustrated .service-card {
+  min-height: 720px;
+}
+
+/* Make the services hero and supporting sections read as illustration-led. */
+.page-hero--image::after {
+  background:
+    linear-gradient(90deg, rgba(7,10,15,.98) 0%, rgba(7,10,15,.88) 50%, rgba(7,10,15,.62) 100%),
+    linear-gradient(180deg, rgba(7,10,15,.30), rgba(7,10,15,.88));
+}
+
+.section--photo-soft::before {
+  background-image: url('/illustrations/maintenance.svg');
+  background-size: min(920px, 86vw) auto;
+  background-position: 92% 55%;
+  opacity: .26;
+}
+
+.home-work-section::before {
+  background-image: url('/illustrations/website.svg');
+  background-size: min(980px, 88vw) auto;
+  background-position: 96% 54%;
+  opacity: .14;
+}
+
+.home-work-section::after,
+.section--photo-soft::after {
+  background: linear-gradient(90deg, rgba(13,17,23,.985), rgba(13,17,23,.92));
+}
+
+/* Softer cards and navigation affordances. */
+.home-path,
+.capability,
+.stack-group,
+.process-item,
+.form-panel,
+.contact-sidebar {
+  border-radius: 20px;
+}
+
+.home-path h3,
+.capability h3,
+.process-item h3,
+.stack-group h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+}
+
+.nav-link,
+.button,
+.text-link {
+  letter-spacing: 0;
+}
+
+@media (max-width: 900px) {
+  .hero--illustrated::after {
+    background:
+      linear-gradient(180deg, rgba(7,10,15,.90), rgba(7,10,15,.96)),
+      url('/illustrations/hero-digital-studio.svg') 66% 40% / cover no-repeat;
+  }
+
+  .hero--illustrated .hero__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero--illustrated .hero__side {
+    max-width: 640px;
+  }
+
+  .service-grid--illustrated .service-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero--illustrated::after {
+    background:
+      linear-gradient(180deg, rgba(7,10,15,.88), rgba(7,10,15,.98)),
+      url('/illustrations/hero-digital-studio.svg') 70% 25% / auto 78% no-repeat;
+  }
+
+  .hero--illustrated .hero__side {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .service-card__visual,
+  .service-card--compact .service-card__visual {
+    height: 170px;
+    border-radius: 16px;
+  }
+
+  .service-card--compact {
+    min-height: 520px;
+  }
+}
