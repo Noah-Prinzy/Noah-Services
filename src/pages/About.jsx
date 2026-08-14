@@ -4,6 +4,7 @@ import PageHero from '../components/PageHero.jsx'
 
 const WHATSAPP_URL = 'https://wa.me/256784695549'
 const GMAIL_COMPOSE_URL = 'https://mail.google.com/mail/?view=cm&fs=1&to=noahprinzy@gmail.com'
+const aboutHeroImage = 'https://images.unsplash.com/photo-1559842135-8d5e4214ae77?auto=format&fit=crop&w=1800&q=80'
 
 const stackGroups = [
   ['Frontend', ['React', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Jetpack Compose', 'SwiftUI']],
@@ -15,9 +16,11 @@ export default function About() {
   return (
     <>
       <PageHero
-        eyebrow="About"
-        title="I like turning ideas into systems people can actually use."
-        copy="I’m Noah Katumba, a developer based in Uganda working across frontend, backend, mobile, and database-driven application development."
+        eyebrow="About me"
+        title="I’m Noah Katumba — a developer who likes understanding the whole product."
+        copy="I’m based in Uganda and work across frontend, backend, mobile, databases, APIs, and deployment. I enjoy turning an idea into something people can actually open, understand, and use."
+        image={aboutHeroImage}
+        imagePosition="center 56%"
       />
 
       <section className="section section--tight-top">
@@ -27,14 +30,14 @@ export default function About() {
             <div className="portrait-card__badge"><span /> Based in Uganda</div>
           </div>
           <div className="about-copy">
-            <span className="eyebrow">The short version</span>
-            <h2>I’m building breadth without losing sight of fundamentals.</h2>
+            <span className="eyebrow">A little more about me</span>
+            <h2>I’m building breadth without losing sight of the fundamentals.</h2>
             <p>My projects have taken me through React interfaces, Kotlin and Ktor backends, Swift and Vapor, PostgreSQL databases, authentication systems, REST APIs, PWAs, and mobile application development.</p>
-            <p>I care about understanding what each layer is doing instead of treating application development as a collection of disconnected tools. That makes it easier to reason about a product from the user interface all the way to the data it depends on.</p>
-            <div className="about-links">
-              <a href={GMAIL_COMPOSE_URL} target="_blank" rel="noreferrer" className="text-link"><Mail size={17} /> noahprinzy@gmail.com</a>
-              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="text-link"><MessageCircle size={17} /> 0784695549</a>
-              <a href="https://github.com/Noah-Prinzy" target="_blank" rel="noreferrer" className="text-link"><Github size={17} /> Noah-Prinzy</a>
+            <p>Rather than treating those technologies as disconnected tools, I try to understand how each layer supports the user experience. That helps me make clearer decisions from the interface all the way to the data and deployment behind it.</p>
+            <div className="about-links" aria-label="Contact Noah Katumba">
+              <a href={GMAIL_COMPOSE_URL} target="_blank" rel="noreferrer" className="text-link"><Mail size={17} /> Email me</a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="text-link"><MessageCircle size={17} /> WhatsApp me</a>
+              <a href="https://github.com/Noah-Prinzy" target="_blank" rel="noreferrer" className="text-link"><Github size={17} /> View my GitHub</a>
             </div>
           </div>
         </div>
@@ -44,7 +47,8 @@ export default function About() {
         <div className="container">
           <div className="stack-heading">
             <span className="eyebrow">Technology</span>
-            <h2>Tools I work with.</h2>
+            <h2>The tools I currently work with.</h2>
+            <p className="stack-heading__copy">You do not need to choose the technology yourself. I use the stack that makes sense for the product and its requirements.</p>
           </div>
           <div className="stack-groups">
             {stackGroups.map(([title, items]) => (
@@ -62,7 +66,7 @@ export default function About() {
       <section className="section">
         <div className="container philosophy-grid">
           <div>
-            <span className="eyebrow">Working principles</span>
+            <span className="eyebrow">How I approach a project</span>
             <h2>Simple enough to understand. Strong enough to grow.</h2>
           </div>
           <div className="philosophy-list">
@@ -73,7 +77,7 @@ export default function About() {
           </div>
         </div>
         <div className="container section-link-row section-link-row--left">
-          <Link to="/contact" className="button">Work with me <ArrowUpRight size={18} /></Link>
+          <Link to="/contact" className="button">Want to work together? <ArrowUpRight size={18} /></Link>
         </div>
       </section>
     </>
