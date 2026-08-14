@@ -1,5 +1,8 @@
-import { ArrowUpRight, Github, Mail, Phone } from 'lucide-react'
+import { ArrowUpRight, Github, Mail, MessageCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
+
+const WHATSAPP_URL = 'https://wa.me/256784695549'
+const GMAIL_COMPOSE_URL = 'https://mail.google.com/mail/?view=cm&fs=1&to=noahprinzy@gmail.com'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -22,8 +25,8 @@ export default function Footer() {
             <p>Designing and building thoughtful digital products from Uganda.</p>
           </div>
           <div className="footer__links">
-            <a href="mailto:noahprinzy@gmail.com"><Mail size={17} /> Email</a>
-            <a href="tel:0784695549"><Phone size={17} /> 0784695549</a>
+            <a href={GMAIL_COMPOSE_URL} target="_blank" rel="noreferrer"><Mail size={17} /> Email</a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={17} /> 0784695549</a>
             <a href="https://github.com/Noah-Prinzy" target="_blank" rel="noreferrer"><Github size={17} /> GitHub</a>
           </div>
           <p className="footer__copyright">© {year} Noah Katumba</p>
