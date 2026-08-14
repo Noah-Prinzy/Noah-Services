@@ -1,6 +1,9 @@
-import { ArrowUpRight, Github, Mail, Phone } from 'lucide-react'
+import { ArrowUpRight, Github, Mail, MessageCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import PageHero from '../components/PageHero.jsx'
+
+const WHATSAPP_URL = 'https://wa.me/256784695549'
+const GMAIL_COMPOSE_URL = 'https://mail.google.com/mail/?view=cm&fs=1&to=noahprinzy@gmail.com'
 
 const stackGroups = [
   ['Frontend', ['React', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Jetpack Compose', 'SwiftUI']],
@@ -29,8 +32,8 @@ export default function About() {
             <p>My projects have taken me through React interfaces, Kotlin and Ktor backends, Swift and Vapor, PostgreSQL databases, authentication systems, REST APIs, PWAs, and mobile application development.</p>
             <p>I care about understanding what each layer is doing instead of treating application development as a collection of disconnected tools. That makes it easier to reason about a product from the user interface all the way to the data it depends on.</p>
             <div className="about-links">
-              <a href="mailto:noahprinzy@gmail.com" className="text-link"><Mail size={17} /> noahprinzy@gmail.com</a>
-              <a href="tel:0784695549" className="text-link"><Phone size={17} /> 0784695549</a>
+              <a href={GMAIL_COMPOSE_URL} target="_blank" rel="noreferrer" className="text-link"><Mail size={17} /> noahprinzy@gmail.com</a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="text-link"><MessageCircle size={17} /> 0784695549</a>
               <a href="https://github.com/Noah-Prinzy" target="_blank" rel="noreferrer" className="text-link"><Github size={17} /> Noah-Prinzy</a>
             </div>
           </div>
