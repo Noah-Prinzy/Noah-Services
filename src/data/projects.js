@@ -1,0 +1,26 @@
+export const projects = [
+  {
+    id: 'ugotour',
+    index: '01',
+    title: 'UgoTour',
+    type: 'Tourism PWA',
+    description: 'A Uganda tourism Progressive Web App with destination discovery, an interactive map, user accounts, saved places, trip planning, and a Node.js/PostgreSQL backend.',
+    stack: ['JavaScript', 'Node.js', 'PostgreSQL', 'PWA'],
+    liveUrl: 'https://ugotour-production.up.railway.app',
+    repoUrl: 'https://github.com/Noah-Prinzy/UgoTour',
+    className: 'project-visual--travel',
+    mark: 'UG',
+  },
+  {
+    id: 'shopswift',
+    index: '02',
+    title: 'ShopSwift',
+    type: 'Shopping Platform',
+    description: 'A shopping prototype with authentication, product catalogue, cart, checkout, order history, a Swift/Vapor backend, PostgreSQL persistence, and a browser PWA.',
+    stack: ['Swift', 'Vapor', 'PostgreSQL', 'REST'],
+    liveUrl: 'https://shop-swift-ten.vercel.app',
+    repoUrl: 'https://github.com/Noah-Prinzy/ShopSwift',
+    className: 'project-visual--commerce',
+    mark: 'SS',
+  },
+]
