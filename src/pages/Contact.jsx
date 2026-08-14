@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react'
-import { ArrowUpRight, Github, Mail, MessageCircle, Phone } from 'lucide-react'
+import { ArrowUpRight, Github, Mail, MessageCircle } from 'lucide-react'
 import { useSearchParams } from 'react-router-dom'
 import PageHero from '../components/PageHero.jsx'
 import { budgetOptions, services } from '../data/services.js'
 
 const WHATSAPP_NUMBER = '256784695549'
+const GMAIL_COMPOSE_URL = 'https://mail.google.com/mail/?view=cm&fs=1&to=noahprinzy@gmail.com'
 
 const initialState = {
   name: '',
@@ -76,12 +77,11 @@ export default function Contact() {
             <div>
               <span className="eyebrow">Direct contact</span>
               <h2>Prefer a simpler message?</h2>
-              <p>You can reach me directly on WhatsApp, by email or phone, or view my development work on GitHub.</p>
+              <p>You can reach me directly on WhatsApp or by email, or view my development work on GitHub.</p>
             </div>
             <div className="contact-methods">
-              <a href="https://wa.me/256784695549" target="_blank" rel="noreferrer"><MessageCircle size={20} /><span><small>WhatsApp</small>0784695549</span><ArrowUpRight size={18} /></a>
-              <a href="mailto:noahprinzy@gmail.com"><Mail size={20} /><span><small>Email</small>noahprinzy@gmail.com</span><ArrowUpRight size={18} /></a>
-              <a href="tel:0784695549"><Phone size={20} /><span><small>Phone</small>0784695549</span><ArrowUpRight size={18} /></a>
+              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer"><MessageCircle size={20} /><span><small>WhatsApp</small>0784695549</span><ArrowUpRight size={18} /></a>
+              <a href={GMAIL_COMPOSE_URL} target="_blank" rel="noreferrer"><Mail size={20} /><span><small>Email</small>noahprinzy@gmail.com</span><ArrowUpRight size={18} /></a>
               <a href="https://github.com/Noah-Prinzy" target="_blank" rel="noreferrer"><Github size={20} /><span><small>GitHub</small>@Noah-Prinzy</span><ArrowUpRight size={18} /></a>
             </div>
             <div className="response-note"><span /> Project inquiries are reviewed personally.</div>
