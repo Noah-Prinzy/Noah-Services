@@ -1,11 +1,12 @@
 import { useMemo, useState } from 'react'
-import { ArrowUpRight, Github, Mail, MessageCircle } from 'lucide-react'
+import { ArrowUpRight, CheckCircle2, Github, Mail, MessageCircle } from 'lucide-react'
 import { useSearchParams } from 'react-router-dom'
 import PageHero from '../components/PageHero.jsx'
 import { budgetOptions, services } from '../data/services.js'
 
 const WHATSAPP_NUMBER = '256784695549'
 const GMAIL_COMPOSE_URL = 'https://mail.google.com/mail/?view=cm&fs=1&to=noahprinzy@gmail.com'
+const contactHeroImage = 'https://images.unsplash.com/photo-1778146476147-5f8d4bd03c79?auto=format&fit=crop&w=1800&q=80'
 
 const initialState = {
   name: '',
@@ -66,18 +67,26 @@ export default function Contact() {
   return (
     <>
       <PageHero
-        eyebrow="Start a project"
-        title="Tell me what you want to build."
-        copy="Share the goal, scope, budget range, or even just the rough idea. When you submit the form, I’ll prepare your request and take you straight to WhatsApp to send it to me."
+        eyebrow="Contact"
+        title="Have an idea? Tell me what you want to build."
+        copy="You do not need a perfect technical brief. Tell me the problem, the idea, or the outcome you want, and we can work out the right next step from there."
+        image={contactHeroImage}
+        imagePosition="center 62%"
       />
 
       <section className="section section--tight-top">
+        <div className="container contact-flow-note" aria-label="How the contact form works">
+          <div><CheckCircle2 size={19} /><span><strong>1. Fill in the project details</strong><small>Only your name, email, and description are required.</small></span></div>
+          <div><CheckCircle2 size={19} /><span><strong>2. Click “Send via WhatsApp”</strong><small>I prepare the message and open WhatsApp for you.</small></span></div>
+          <div><CheckCircle2 size={19} /><span><strong>3. Review and press Send</strong><small>Nothing is sent until you choose to send it in WhatsApp.</small></span></div>
+        </div>
+
         <div className="container contact-grid">
           <aside className="contact-sidebar">
             <div>
-              <span className="eyebrow">Direct contact</span>
-              <h2>Prefer a simpler message?</h2>
-              <p>You can reach me directly on WhatsApp or by email, or view my development work on GitHub.</p>
+              <span className="eyebrow">Prefer direct contact?</span>
+              <h2>Reach me in the way that feels easiest.</h2>
+              <p>WhatsApp is the quickest option for a project conversation. You can also compose an email or explore my development work on GitHub.</p>
             </div>
             <div className="contact-methods">
               <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noreferrer"><MessageCircle size={20} /><span><small>WhatsApp</small>0784695549</span><ArrowUpRight size={18} /></a>
@@ -88,6 +97,11 @@ export default function Contact() {
           </aside>
 
           <div className="form-panel">
+            <div className="form-panel__intro">
+              <span className="eyebrow">Project inquiry</span>
+              <h2>Give me the useful context.</h2>
+              <p>Share as much as you know. Optional fields can be left blank.</p>
+            </div>
             <form onSubmit={handleSubmit}>
               <div className="form-row">
                 <label>Name *<input name="name" type="text" autoComplete="name" value={form.name} onChange={handleChange} placeholder="Your name" required /></label>
@@ -98,7 +112,7 @@ export default function Contact() {
                 <label>Company<input name="company" type="text" autoComplete="organization" value={form.company} onChange={handleChange} placeholder="Optional" /></label>
               </div>
               <div className="form-row">
-                <label>Service
+                <label>What do you need?
                   <select name="service" value={form.service} onChange={handleChange}>
                     <option value="">Select a service</option>
                     {services.map((service) => <option value={service.title} key={service.id}>{service.title}</option>)}
@@ -112,14 +126,14 @@ export default function Contact() {
                   </select>
                 </label>
               </div>
-              <label>Project description *
-                <textarea name="message" rows="7" value={form.message} onChange={handleChange} placeholder="What are you trying to build? What should it do? What stage is the idea currently at?" required />
+              <label>Tell me about the project *
+                <textarea name="message" rows="7" value={form.message} onChange={handleChange} placeholder="What do you want to build? Who is it for? What should it help them do?" required />
               </label>
               {error && <p className="form-error" role="alert">{error}</p>}
               <button className="button form-submit" type="submit">
-                <MessageCircle size={18} /> Send via WhatsApp <ArrowUpRight size={18} />
+                <MessageCircle size={18} /> Prepare message in WhatsApp <ArrowUpRight size={18} />
               </button>
-              <p className="form-footnote">Submitting this form opens WhatsApp with your project details already prepared. You’ll review the message and press Send in WhatsApp. No payment is collected on this website.</p>
+              <p className="form-footnote">This button opens WhatsApp with your project details already prepared. Review the message there, then press Send when you are ready. No payment is collected on this website.</p>
             </form>
           </div>
         </div>
