@@ -87,6 +87,7 @@ Six projects, all shown at the same size. Each gets a card image, a case-study p
 - Run the design process first: `ui-consistency:finding-patterns`, then `design-loop` / `taste-skill` (references → `DESIGN.md` → build → screenshot check at 1440/768/390).
 - References: the portfolio set in `design_base.md` (Matthew Yu, Sirio, Anti-Portfolio …) and the HTML5 UP templates (Miniport, Read Only, Strata) for portfolio rhythm.
 - **Illustrations and UX (Noah, 2026-11-19):** redraw the SVG illustrations so they're *cleaner and simpler*, but with a strong "wow" effect: fewer shapes, bold geometry, emerald/neutral, square corners, and subtle motion (draw-on lines, parallax, hover reactions) that respects reduced motion. The UI and the UX flow (Home → Work → case study → Services → WhatsApp inquiry) should impress at every step. This is reviewed against a comp before the pages are built.
+- **Imagery (Noah, 2026-11-19):** find much better images, picked for aesthetic quality first: high-end photography (Unsplash/Pexels, free licence), consistent grading to fit emerald/neutral, no generic stock clichés. Every image is credited in `CREDITS.md`.
 - **Distinct from S&N Devs:** a personal brand ("Noah ⌬ Devs", the hexagon mark from Instagram), not a copy of the studio's look.
 - **shadcn preset `b5nh4SpZSC`** ([view](https://ui.shadcn.com/create?preset=b5nh4SpZSC)), decoded 2026-11-19:
 
