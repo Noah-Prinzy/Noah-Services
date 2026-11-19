@@ -1,12 +1,15 @@
 "use client"
 
 import { useEffect } from "react"
+import { usePathname } from "next/navigation"
 
 /**
  * Entrance reveals (DESIGN.md, Motion). Content is visible without script; this
  * marks the page ready, then reveals each [data-reveal] once as it enters view.
  */
 export function Reveal() {
+  // Re-run on every route, so pages reached by client navigation reveal too.
+  const path = usePathname()
   useEffect(() => {
     const root = document.documentElement
     const items = Array.from(
@@ -31,7 +34,7 @@ export function Reveal() {
       io.disconnect()
       root.classList.remove("js-reveal")
     }
-  }, [])
+  }, [path])
 
   return null
 }

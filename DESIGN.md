@@ -7,9 +7,9 @@ The design system for noah-services. Every value in the build traces back to a t
 
 ## Idea
 
-> On this page, **the hexagon in Noah's own mark (⌬)** becomes **the window that opens to the edges**: the first screen shows a sunrise through a hexagon that grows into the full screen as you scroll.
+> On this page, **the hexagon in Noah's own mark (⌬)** becomes **the window that opens to the edges**: the first screen shows a black hole through a hexagon, with Noah's real projects floating around it.
 
-Competitor test: another developer can find the same sunrise but not this mark. The hexagon recurs as the one motif: the window, the wordmark glyph, and the service drawings.
+Competitor test: another developer can find the same black hole but not this mark. The hexagon recurs as the one motif: the window, the wordmark glyph, and the service drawings.
 
 **Live thing:** the pricing stage. Pick a service and the price changes in place, in UGX with the USD guide beside it. The button opens WhatsApp with that service already written into the message. It works with keyboard and thumb, and without script it falls back to a plain list with links.
 
@@ -48,53 +48,58 @@ Headlines stay at two lines or fewer at every width. Left-aligned.
 
 ## Space and frame
 
-- Page margin `--gutter`: 20px on phones, 32px from 768px. One pair, equal on both sides, everywhere.
-- 12-column grid inside the margins, gap 24px.
-- Section gap `--section`: clamp(120px, 14vw, 200px). Inside a section the gaps go 16, 24, 48 and 72px.
-- Max text measure: 62ch.
+- Root size is fluid: `html { font-size: clamp(16px, 0.35vw + 11px, 20px) }`, so rem-based type and spacing grow with the window and nothing looks undersized on wide screens.
+- Page margin `--gutter`: clamp(16px, 4.5vw, 96px). The frame fills the window up to 1840px; it never crowds into a narrow centre column.
+- 12-column grid inside the margins. Section gap `--section`. Max text measure: 62ch.
+- Every page opens with a hero that fills the first screen (`100svh`, the header sits over it).
 
 ## Shape
 
-- Radius **0** everywhere (preset). Square buttons, square images.
-- No shadows at rest, no gradients (except a neutral scrim under text on photographs), no thin decorative rules, no glass.
-- Surfaces are separated by a tone step (`--muted`), never by a line.
+- Radius **0** everywhere, enforced globally (`border-radius: 0 !important`). Only true circles opt out with `.is-round`.
+- Surfaces are separated by a tone step or a 1px border.
 
 ## Components
 
-- **Button:** one shape. Solid emerald (`--primary`), square, 48px tall (56px full-width on phones), label at step sm and weight 500. The secondary action is a plain text link with an underline on hover.
-- **Navigation:** the wordmark "Noah ⌬ Devs" at the left, then Work, Services, About and Contact, and one WhatsApp button. A plain bar on the ground with no blur; it folds to a "Menu" word on phones.
+- **Button:** `.cta` (solid emerald, square, 3rem tall) and `.cta-ghost` (bordered).
+- **Navigation:** wordmark, Work, Services, Contact, a theme toggle and one WhatsApp button. Over a hero it dissolves into the picture; once the hero has scrolled away it pops in as a solid bar. Folds to "Menu" on phones.
+- **PageHero** (`components/site/page-backdrop.tsx`): the dark full-screen intro of every inner page: a photo (or a project screen blurred into a colour field), the aurora and the veil, copy centred.
+- **WorkIndex** (`components/work/work-index.tsx`): the home page's split showcase of three selected projects. A numbered list on the left; on wide screens a sticky preview on the right crossfades to the hovered or centred project. Phones show each screen inside its row.
 - **Icons:** Remix Icon at 1.15em, beside text only.
-- **Images:** next/image, WebP, square corners, one treatment. Project screens are shown as they are, never recoloured.
 
 ## Imagery
 
 | Slot | Source | Licence |
 |---|---|---|
-| Hero window | "A landscape with trees and mountains" (misty sunrise), Shai Pal, Unsplash | Unsplash License |
-| Contact | "Computer programming codes displayed on a monitor", Markus Spiske, Unsplash | Unsplash License |
-| Work panels | Live screenshots of Noah's own projects (Zuula, Phronesis presentation, Pearl AI, Shamba AI, Nine Coals) captured 2026-11-19 | Noah's / project owners' own work |
-| UrCart | Its own brand wordmark on its own colour field (no live demo exists) | Noah's own |
+| Home hero | Looping digital-wave video, Nicola Narracci, Pexels; black hole by Norbert Kowalczyk in the hexagon | Pexels / Unsplash License |
+| Work, Services, Contact heroes | Dark desk (Nikita Kachanovsky), dark cubes (Voxels Republic), starfield (Olena Bohovyk), Unsplash | Unsplash License |
+| Contact, closing call | Code close-up (Juanjo Jaramillo), circuit board (Vishnu Mohanan), Unsplash | Unsplash License |
+| Project screens | Live screenshots of Noah's own projects, captured 2026-11-19 | Noah's / project owners' own work |
+| UrCart | Its own wordmark on a dark amber field (no live demo exists) | Noah's own |
 
 Every credit is in `CREDITS.md` and in the footer.
 
-## Illustrations (service drawings)
+## Illustrations
 
-One flat geometric language: square corners, 2px strokes in `--foreground`, fills in `--muted`, a single emerald detail per drawing, and the hexagon as the recurring node. Each drawing has 3–6 shapes. They draw on (stroke-dashoffset, 700ms, ease-out-quart) when their plan is selected. Under reduced motion they appear complete.
+- Service drawings: one flat geometric language, square corners, the hexagon as the recurring node.
+- Floaters (`components/home/floaters.tsx`): a wireframe 3×3 cube, a hexagon ring, an emerald orb and the logo chip. Decorative, behind content, hidden on phones where they would sit on text.
 
 ## Motion
 
-- **Signature:** the hexagon window opening to full-bleed, scroll-linked over 100svh.
-- **Pinned story:** the work panels slide over each other (sticky), and the process fragment changes state as statements pass.
-- **Entrances:** heading, then text, then picture, staggered 70ms, rising 24px with opacity over 600ms `cubic-bezier(0.22, 1, 0.36, 1)`. They fire once, and content stays visible without script.
-- **Feedback:** buttons darken 8% on hover and move down 1px on press. Links underline on hover. Focus rings are 2px emerald.
-- **Reduced motion:** no travel, no scroll-linked clipping. The hero shows the open picture below the headline.
-- Only transform and opacity are animated, apart from the hero's clip-path.
+- **Hero:** the video loops under a slow aurora gradient. On scroll the copy lifts and blurs out while the floating collage flies apart and dissolves through an SVG turbulence filter (`--p`, 0 → 1).
+- **Floaters:** drift through their section with the scroll (`--t`), spin, then blur and fade as they leave the top.
+- **Work showcase:** rows sweep a glow on hover; the stage crossfades (opacity, rise, blur) between projects.
+- **Entrances:** `data-reveal`, staggered, fire once; content stays visible without script.
+- **Reduced motion:** no video autoplay, no transforms, no scroll effects; everything shows in its final state.
 
 ## Sections (Home)
 
-1. **Hero:** the hexagon window onto a sunrise, the h1 to its left, the supporting sentence and WhatsApp action to its right.
-2. **Work:** six full-screen panels, each a project screen, with a fixed midline row (year · title · role).
-3. **Services and pricing:** the plan names list on the left, the live price stage with a drawing on the right.
-4. **Process:** four statements (Sketch, Build, Launch, Grow) beside a pinned fragment that changes state.
-5. **Contact:** a solid card on a close-up of code, with WhatsApp, call, email and Instagram.
-6. **Footer:** the name first at full width on the inverse field, then the ways to reach Noah, the links and the credits.
+The home page points onward and does not repeat the other pages.
+
+1. **Hero:** full screen, h1 and actions on the left, the floating project collage on the right.
+2. **Stack strip:** the tools, in a slow logo loop.
+3. **Selected work:** three projects in the split showcase, with a link to all six.
+4. **How I work:** one person from first message to launch, three promises (fixed quote in shillings, mobile first, looked after once live), a link to services and prices.
+5. **Closing call:** WhatsApp, on the circuit-board photo.
+6. **Footer:** the name, the ways to reach Noah, the pages and the credits.
+
+The full work is on /work, prices and process on /services, every contact route on /contact.

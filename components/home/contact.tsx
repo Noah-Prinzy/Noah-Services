@@ -1,66 +1,85 @@
 import Image from "next/image"
-import { RiArrowRightUpLine } from "@remixicon/react"
+import {
+  RiArrowRightUpLine,
+  RiInstagramLine,
+  RiMailLine,
+  RiPhoneLine,
+  RiWhatsappLine,
+} from "@remixicon/react"
 
+import { GlowCard } from "@/components/ui/glow-card"
 import { CHANNELS } from "@/data/contact"
-import code from "@/public/photos/code-on-screen.webp"
+import code from "@/public/photos/react-code.webp"
 
+const ICON = {
+  whatsapp: RiWhatsappLine,
+  call: RiPhoneLine,
+  email: RiMailLine,
+  instagram: RiInstagramLine,
+}
+const external = (id: string) => id === "whatsapp" || id === "instagram"
+
+/** The four ways to reach Noah, as large tappable cards beside the code photograph. */
 export function Contact() {
   return (
-    <section
-      id="contact"
-      aria-labelledby="contact-title"
-      className="relative min-h-[110svh] scroll-mt-0"
-    >
-      <Image
-        src={code}
-        alt="Close-up of JavaScript code glowing on a dark screen"
-        fill
-        sizes="100vw"
-        placeholder="blur"
-        className="object-cover"
-      />
-      <div className="frame relative flex min-h-[110svh] items-end py-[var(--gutter)] md:py-16">
-        <div className="w-full max-w-xl bg-background p-6 md:p-12" data-reveal>
-          <h2 id="contact-title" className="t-lg">
-            Tell me what you&apos;re building
-          </h2>
-          <p className="t-md mt-6 max-w-[36ch]">
-            WhatsApp is quickest. Say what you need and roughly your budget, and
-            I&apos;ll come back with a fixed quote.
-          </p>
-          <ul className="mt-10">
-            {CHANNELS.map((c, n) => (
-              <li key={c.id}>
+    <div className="grid gap-4 lg:grid-cols-12">
+      <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-7">
+        {CHANNELS.map((c, i) => {
+          const Icon = ICON[c.id]
+          return (
+            <li
+              key={c.id}
+              data-reveal
+              style={{ "--i": i } as React.CSSProperties}
+            >
+              <GlowCard className="group h-full">
                 <a
                   href={c.href}
-                  target={
-                    c.id === "call" || c.id === "email" ? undefined : "_blank"
-                  }
-                  rel="noreferrer"
-                  className={`group flex items-center justify-between gap-4 px-4 py-4 transition-colors hover:bg-muted ${
-                    n === 0
-                      ? "bg-primary text-primary-foreground hover:bg-primary"
-                      : ""
-                  }`}
+                  target={external(c.id) ? "_blank" : undefined}
+                  rel={external(c.id) ? "noreferrer" : undefined}
+                  className="flex h-full flex-col justify-between gap-5 rounded-[inherit] p-5 sm:min-h-44 sm:gap-8 sm:p-6"
                 >
-                  <span className="font-heading text-[19px] font-semibold">
-                    {c.label}
+                  <span className="flex items-center justify-between">
+                    <span
+                      className={`grid size-12 place-items-center rounded-2xl ${i === 0 ? "bg-primary text-primary-foreground" : "bg-muted"}`}
+                    >
+                      <Icon className="size-6" aria-hidden />
+                    </span>
+                    <RiArrowRightUpLine
+                      className="size-5 text-muted-foreground transition-colors group-hover:text-glow"
+                      aria-hidden
+                    />
                   </span>
-                  <span className="flex items-center gap-2">
-                    {c.value}
-                    <RiArrowRightUpLine className="size-[1.15em]" aria-hidden />
+                  <span>
+                    <span className="block font-heading text-[1.5rem] font-semibold">
+                      {c.label}
+                    </span>
+                    <span className="mt-1 block break-all text-muted-foreground">
+                      {c.value}
+                    </span>
+                    {external(c.id) && (
+                      <span className="sr-only"> (opens in a new tab)</span>
+                    )}
                   </span>
                 </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <p className="absolute inset-x-[var(--gutter)] top-4 flex justify-end">
-        <span className="t-xs bg-inverse/70 px-2 py-1 text-inverse-foreground">
-          Photo: Markus Spiske, Unsplash
-        </span>
-      </p>
-    </section>
+              </GlowCard>
+            </li>
+          )
+        })}
+      </ul>
+      <figure className="relative min-h-80 overflow-hidden rounded-[calc(var(--radius)*2.5)] border border-border lg:col-span-5">
+        <Image
+          src={code}
+          alt="React source code open in a dark code editor"
+          fill
+          sizes="(min-width: 1024px) 40vw, 100vw"
+          placeholder="blur"
+          className="object-cover"
+        />
+        <figcaption className="t-xs absolute right-3 bottom-3 rounded-full bg-black/60 px-3 py-1 text-white">
+          Photo: Juanjo Jaramillo, Unsplash
+        </figcaption>
+      </figure>
+    </div>
   )
 }

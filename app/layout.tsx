@@ -1,7 +1,10 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { IBM_Plex_Sans, Oxanium } from "next/font/google"
 
 import "./globals.css"
+import { Reveal } from "@/components/motion/reveal"
+import { Footer } from "@/components/site/footer"
+import { Header } from "@/components/site/header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 
@@ -17,9 +20,19 @@ const ibmPlexSans = IBM_Plex_Sans({
 
 // Basic metadata; full SEO, OG images and JSON-LD come in phase 5.
 export const metadata: Metadata = {
-  title: "Noah ⌬ Devs: websites and apps made in Kampala",
+  title: {
+    default: "Noah Devs: websites and apps made in Kampala",
+    template: "%s · Noah Devs",
+  },
   description:
     "Noah Katumba designs and builds fast websites, online stores and AI products for businesses in Uganda and beyond. Prices in UGX, fixed quotes up front.",
+}
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0b0b0b" },
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+  ],
 }
 
 export default function RootLayout({
@@ -39,7 +52,17 @@ export default function RootLayout({
       )}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <a href="#main" className="skip-link">
+            Skip to content
+          </a>
+          <Header />
+          <main id="main" tabIndex={-1} className="outline-none">
+            {children}
+          </main>
+          <Footer />
+          <Reveal />
+        </ThemeProvider>
       </body>
     </html>
   )

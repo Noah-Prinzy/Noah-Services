@@ -1,82 +1,81 @@
+import Link from "next/link"
+
+import { LogoMark } from "@/components/site/logo"
 import { CHANNELS, OWNER, STUDIO } from "@/data/contact"
+
+const external = (id: string) => id === "whatsapp" || id === "instagram"
 
 export function Footer() {
   return (
-    <footer className="bg-inverse text-inverse-foreground">
-      <div className="frame pt-[var(--section)] pb-10">
-        <p className="t-xl" aria-label={OWNER.brand}>
-          Noah <span className="text-primary">⌬</span> Devs
-        </p>
+    <footer className="mt-[var(--section)] border-t border-border">
+      <div className="frame grid gap-12 py-16 md:grid-cols-12 md:gap-6">
+        <div className="md:col-span-5">
+          <LogoMark className="h-16 w-auto" />
+          <p className="t-lg mt-6">Noah Devs</p>
+          <p className="mt-3 max-w-[48ch] text-muted-foreground">
+            {OWNER.name}, {OWNER.role.toLowerCase()} in {OWNER.location}. Also
+            co-founder of{" "}
+            <a
+              href={STUDIO.url}
+              className="link text-foreground underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {STUDIO.name}
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+            .
+          </p>
+        </div>
 
-        <div className="mt-16 grid gap-10 md:mt-[72px] md:grid-cols-12 md:gap-6">
-          <div className="md:col-span-4">
-            <p className="t-md">{OWNER.name}</p>
-            <p className="mt-2 opacity-70">
-              {OWNER.role}, {OWNER.location}
-            </p>
-            <p className="mt-6 opacity-70">
-              Also co-founder of{" "}
-              <a
-                href={STUDIO.url}
-                className="link underline"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {STUDIO.name}
-              </a>
-              .
-            </p>
-          </div>
-
-          <ul className="flex flex-col gap-3 md:col-span-4">
+        <div className="md:col-span-4">
+          <h2 className="t-xs font-sans font-medium text-muted-foreground">
+            Reach me
+          </h2>
+          <ul className="mt-4 flex flex-col gap-3">
             {CHANNELS.map((c) => (
               <li key={c.id}>
                 <a
                   href={c.href}
                   className="link"
-                  target={
-                    c.id === "call" || c.id === "email" ? undefined : "_blank"
-                  }
-                  rel="noreferrer"
+                  target={external(c.id) ? "_blank" : undefined}
+                  rel={external(c.id) ? "noreferrer" : undefined}
                 >
                   {c.label}: {c.value}
                 </a>
               </li>
             ))}
           </ul>
+        </div>
 
-          <ul className="flex flex-col gap-3 md:col-span-3 md:col-start-10">
+        <div className="md:col-span-3">
+          <h2 className="t-xs font-sans font-medium text-muted-foreground">
+            Pages
+          </h2>
+          <ul className="mt-4 flex flex-col gap-3">
             <li>
-              <a href="#work" className="link">
+              <Link href="/work" className="link">
                 Work
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#services" className="link">
+              <Link href="/services" className="link">
                 Services and prices
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#process" className="link">
-                Process
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="link">
+              <Link href="/contact" className="link">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
-
-        <div className="t-xs mt-16 flex flex-col gap-2 opacity-70 md:mt-[72px] md:flex-row md:justify-between">
-          <p>
-            © {new Date().getFullYear()} {OWNER.name}. Prices in UGX.
-          </p>
-          <p className="max-w-[60ch]">
-            Photos by Shai Pal and Markus Spiske on Unsplash.
-          </p>
-        </div>
+      </div>
+      <div className="frame t-xs flex flex-col gap-2 pb-10 text-muted-foreground md:flex-row md:justify-between">
+        <p>
+          © {new Date().getFullYear()} {OWNER.name}. Prices in UGX.
+        </p>
+        <p>Photos from Unsplash: Norbert Kowalczyk, Olena Bohovyk, Vishnu Mohanan, Juanjo Jaramillo, Voxels Republic and Nikita Kachanovsky. Video from Pexels: Nicola Narracci.</p>
       </div>
     </footer>
   )

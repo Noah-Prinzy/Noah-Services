@@ -61,7 +61,7 @@ export const PROJECTS: Project[] = [
     slug: "phronesis",
     title: "Phronesis",
     tagline:
-      "A JARVIS for your car: a realtime AI co-pilot for drivers and garages.",
+      "YOUR CAR BROUGHT TO LIFE: a realtime AI co-pilot for drivers and garages.",
     summary:
       "Phronesis understands your car and talks you through it in real time. A driver web app, a garage app and native mobile apps share one backend with a marketplace, payments, messaging and alerts, while a Python engine and R data pipeline power the intelligence.",
     category: "AI",

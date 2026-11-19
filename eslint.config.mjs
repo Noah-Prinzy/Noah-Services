@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored React Bits components (MIT + Commons Clause), kept as shipped.
+    "components/BlurText.tsx",
+    "components/LogoLoop.tsx",
+    "components/SpotlightCard.tsx",
   ]),
 ]);
 

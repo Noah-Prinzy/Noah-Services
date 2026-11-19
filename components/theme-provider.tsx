@@ -3,7 +3,7 @@
 import * as React from "react"
 import { ThemeProvider as NextThemesProvider } from "next-themes"
 
-// DESIGN.md: the site defaults to light. The scaffold's "d" hotkey is removed so a
+// DESIGN.md: the site defaults to dark (the logo's black); visitors can switch. The scaffold's "d" hotkey is removed so a
 // stray keypress never flips the theme for a visitor.
 function ThemeProvider({
   children,
@@ -12,7 +12,7 @@ function ThemeProvider({
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="light"
+      defaultTheme="dark"
       enableSystem={false}
       disableTransitionOnChange
       {...props}
