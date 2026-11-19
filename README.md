@@ -1,29 +1,14 @@
 # Noah Services
 
-A premium personal services and portfolio website for **Noah Katumba**, built with React and Vite and prepared for Netlify deployment.
+Personal services and portfolio site for **Noah Katumba** (Noah ⌬ Devs).
 
-## What is included
-
-- Multi-page React website with React Router
-- Home, Services, Work, About, Contact, and 404 routes
-- Responsive desktop/tablet/mobile layouts
-- Service catalogue with draft starting prices in UGX
-- Featured portfolio projects linked to Noah's public GitHub repositories
-- WhatsApp project-inquiry flow that prepares a client request and opens it in WhatsApp
-- SPA redirect rule for Netlify
-- SEO/social metadata, favicon, and security headers
-- No installable PWA setup for this website
-- No website payment processing; commercial discussions and payments occur outside the site
+> **Rebuild in progress** on the `next-upgrade` branch. The full plan, with its decisions, prices, projects and phases, is in [docs/UPGRADE-PLAN.md](docs/UPGRADE-PLAN.md). The old React + Vite site is still on `main`.
 
 ## Stack
 
-- React 19
-- JavaScript
-- Vite
-- React Router
-- Lucide React icons
-- Custom CSS
-- WhatsApp click-to-chat inquiry flow + Netlify hosting configuration
+- Next.js 16 (App Router), React 19, TypeScript
+- Tailwind CSS 4 + shadcn/ui, preset [`b5nh4SpZSC`](https://ui.shadcn.com/create?preset=b5nh4SpZSC): base-mira style, emerald accent, IBM Plex Sans + Oxanium, Remix Icon, square corners
+- Hosted on Vercel
 
 ## Local development
 
@@ -32,47 +17,16 @@ npm install
 npm run dev
 ```
 
-Open the URL printed by Vite (normally `http://localhost:5173`).
+Open http://localhost:3000.
 
-## Production build
+## Checks
 
 ```bash
+npm run lint
+npm run typecheck
 npm run build
-npm run preview
 ```
 
-## Netlify deployment
+## Contact details used on the site
 
-1. Push this repository to GitHub.
-2. In Netlify, choose **Add new project → Import an existing project**.
-3. Connect GitHub and select this repository.
-4. Netlify should read the included `netlify.toml`:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-5. Deploy the project.
-6. Open `/contact`, complete a test inquiry, and confirm **Send via WhatsApp** opens a pre-filled message to 0784695549.
-
-The `public/_redirects` file handles React Router routes on direct page loads.
-
-## Important before public launch
-
-The service prices are **draft starting prices** created for the initial website build. Update the values in:
-
-```text
-src/data/services.js
-```
-
-before using the site as your final public price list.
-
-The site currently uses the public email address from the connected GitHub profile:
-
-```text
-noahprinzy@gmail.com
-```
-
-WhatsApp contact: 0784695549. LinkedIn is not included yet because no confirmed public profile URL has been supplied.
-
-## Featured work
-
-- UgoTour — https://ugotour-production.up.railway.app
-- ShopSwift — https://shop-swift-ten.vercel.app
+WhatsApp and phone: +256 784 695549 · Email: noahdevsug@gmail.com · Instagram: [@noahdevsug](https://instagram.com/noahdevsug)
