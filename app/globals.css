@@ -1,0 +1,302 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(0.985 0.004 165);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.508 0.118 165.612);
+    --primary-foreground: oklch(0.979 0.021 166.113);
+    --secondary: oklch(0.967 0.001 286.375);
+    --secondary-foreground: oklch(0.21 0.006 285.885);
+    --muted: oklch(0.965 0.006 165);
+    --muted-foreground: oklch(0.45 0.01 165);
+    --accent: oklch(0.508 0.118 165.612);
+    --accent-foreground: oklch(0.979 0.021 166.113);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.145 0 0 / 10%);
+    --input: oklch(0.145 0 0 / 14%);
+    --ring: oklch(0.508 0.118 165.612);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --radius: 0;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.596 0.145 163.225);
+    --sidebar-primary-foreground: oklch(0.979 0.021 166.113);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+    --background: oklch(0.155 0.004 165);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.2 0.008 165);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.2 0.008 165);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.508 0.118 165.612);
+    --primary-foreground: oklch(0.979 0.021 166.113);
+    --secondary: oklch(0.274 0.006 286.033);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.235 0.01 165);
+    --muted-foreground: oklch(0.75 0.012 165);
+    --accent: oklch(0.508 0.118 165.612);
+    --accent-foreground: oklch(0.979 0.021 166.113);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 9%);
+    --input: oklch(1 0 0 / 14%);
+    --ring: oklch(0.74 0.15 163);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.696 0.17 162.48);
+    --sidebar-primary-foreground: oklch(0.262 0.051 172.552);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+}
+
+@theme inline {
+    --font-sans: var(--font-sans);
+    --font-heading: var(--font-heading);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+}
+/* ---- Noah ⌬ Devs layer (DESIGN.md). Preset b5nh4SpZSC, tweaked: dark-first on the
+   logo's black, emerald kept, radius 0 (the preset's "None", kept square everywhere), a brighter emerald for text on dark. ---- */
+:root {
+    --glow: oklch(0.47 0.11 165);
+    --step-xs: 0.875rem;
+    --step-sm: 1.0625rem;
+    --step-md: clamp(1.125rem, 1.2vw, 1.5rem);
+    --step-lg: clamp(32px, 4.4vw, 80px);
+    --step-xl: clamp(44px, 7.4vw, 144px);
+    --gutter: clamp(16px, 4.5vw, 96px);
+    --section: clamp(80px, 9vw, 128px);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dark { --glow: oklch(0.79 0.15 163); }
+@theme inline { --color-glow: var(--glow); }
+
+@layer base {
+    /* One root size that grows with the screen (16px on phones and laptops, up to 20px on
+       very wide displays), so rem-based text, spacing and controls stay in proportion
+       as the layout fills wider windows. */
+    html { scroll-behavior: smooth; color-scheme: light; font-size: clamp(16px, 0.35vw + 11px, 20px); }
+    html.dark { color-scheme: dark; }
+    body { font-size: var(--step-sm); line-height: 1.6; }
+    h1, h2, h3 { font-family: var(--font-heading); text-wrap: balance; }
+    p { text-wrap: pretty; }
+    :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+    ::selection { background: var(--primary); color: var(--primary-foreground); }
+}
+
+@layer components {
+    .frame { width: 100%; max-width: 1840px; margin-inline: auto; padding-inline: var(--gutter); }
+    .t-xs { font-size: var(--step-xs); line-height: 1.45; }
+    .t-sm { font-size: var(--step-sm); line-height: 1.6; }
+    .t-md { font-size: var(--step-md); line-height: 1.45; }
+    .t-lg { font-family: var(--font-heading); font-size: var(--step-lg); line-height: 1; letter-spacing: -0.025em; font-weight: 600; }
+    .t-xl { font-family: var(--font-heading); font-size: var(--step-xl); line-height: 0.92; letter-spacing: -0.035em; font-weight: 600; }
+    .cta, .cta-ghost {
+        display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+        min-height: 3rem; padding-inline: 1.4rem; border-radius: 0;
+        font-size: var(--step-sm); font-weight: 500; white-space: nowrap;
+        transition: background-color 180ms var(--ease-out), border-color 180ms var(--ease-out), transform 120ms var(--ease-out), box-shadow 240ms var(--ease-out);
+    }
+    .cta { background: var(--primary); color: var(--primary-foreground); }
+    .cta:hover { background: color-mix(in oklch, var(--primary), white 10%); box-shadow: 0 0 0 6px color-mix(in oklch, var(--primary), transparent 80%); }
+    .cta-ghost { border: 1px solid var(--border); background: color-mix(in oklch, var(--foreground), transparent 96%); }
+    .cta-ghost:hover { border-color: color-mix(in oklch, var(--glow), transparent 40%); }
+    .cta:active, .cta-ghost:active { transform: translateY(1px); }
+    .link { text-underline-offset: 4px; }
+    .link:hover { text-decoration: underline; }
+    .tabular { font-variant-numeric: tabular-nums; }
+    .hex { clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+    .skip-link {
+        position: fixed; left: var(--gutter); top: -80px; z-index: 100;
+        padding: 12px 18px; border-radius: 0; background: var(--primary); color: var(--primary-foreground);
+        transition: top 160ms var(--ease-out);
+    }
+    .skip-link:focus { top: 12px; }
+    /* A browser window frame for project screens. */
+    .window { border-radius: 0; overflow: hidden; background: var(--card); border: 1px solid var(--border);
+        box-shadow: 0 30px 60px -30px oklch(0 0 0 / 0.55), 0 0 0 1px oklch(1 0 0 / 0.03) inset; }
+    .window-bar { display: flex; gap: 6px; align-items: center; height: 26px; padding-inline: 10px; background: var(--muted); }
+    .window-bar span { width: 8px; height: 8px; border-radius: 0; background: color-mix(in oklch, var(--foreground), transparent 70%); }
+}
+
+/* Floating elements drift; the stage adds pointer parallax on top (floating-stage.tsx). */
+@keyframes float-y { 0%, 100% { translate: 0 0; } 50% { translate: 0 -14px; } }
+@keyframes spin-slow { to { rotate: 360deg; } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.float { animation: float-y var(--dur, 8s) ease-in-out infinite; animation-delay: var(--delay, 0s); }
+
+/* Entrances: visible by default; hidden only once JS marks the page ready. */
+.js-reveal [data-reveal] { opacity: 0; transform: translateY(20px); }
+.js-reveal [data-reveal].is-in {
+    opacity: 1; transform: none;
+    transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+    transition-delay: calc(var(--i, 0) * 70ms);
+}
+
+/* Service drawings draw on (service-art.tsx) */
+.draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw-on 700ms var(--ease-out) forwards; }
+@keyframes draw-on { to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .js-reveal [data-reveal] { opacity: 1; transform: none; }
+    .float { animation: none; }
+    .draw { stroke-dashoffset: 0; animation: none; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* The page's own ground, captured at the root so the always-dark hero can fade into it
+   in either theme (custom properties inherit their computed value). */
+:root { --page-bg: var(--background); }
+
+/* Hero: a looping video (hero-grid) under a slow aurora (after Shader Gradient and
+   Background Studio in design_base.md): three light fields that drift and shift hue. */
+.hero-aurora {
+    background:
+        radial-gradient(42% 46% at 18% 18%, oklch(0.62 0.16 163 / 0.55), transparent 70%),
+        radial-gradient(38% 50% at 86% 22%, oklch(0.55 0.13 205 / 0.42), transparent 70%),
+        radial-gradient(34% 40% at 62% 88%, oklch(0.5 0.17 290 / 0.3), transparent 70%),
+        radial-gradient(30% 30% at 40% 50%, oklch(0.7 0.14 150 / 0.12), transparent 70%);
+    mix-blend-mode: screen;
+    animation: aurora 20s ease-in-out infinite alternate;
+    will-change: transform, filter;
+}
+@keyframes aurora {
+    50% { transform: translate3d(3%, -2%, 0) scale(1.06) rotate(-2deg); filter: hue-rotate(-18deg); }
+    100% { transform: translate3d(-3%, 2%, 0) scale(1.1) rotate(3deg); filter: hue-rotate(22deg); }
+}
+/* Keeps the copy readable over the video, then hands over to the page at the bottom. */
+.hero-veil {
+    background:
+        linear-gradient(90deg, oklch(0.12 0.01 165 / 0.85) 0%, oklch(0.12 0.01 165 / 0.35) 55%, transparent 100%),
+        linear-gradient(to bottom, transparent 62%, var(--page-bg) 100%);
+}
+/* Scroll exit, driven by --p on [data-hero] (floating-stage.tsx, HeroScroll). */
+.hero-copy {
+    opacity: calc(1 - var(--p) * 1.3);
+    transform: translate3d(0, calc(var(--p) * -80px), 0);
+    filter: blur(calc(var(--p) * 8px));
+}
+.hero-piece { opacity: calc(1 - var(--p) * 1.25); transition: transform 450ms var(--ease-out); will-change: transform, opacity; }
+[data-hero][data-out] .hero-piece { filter: url(#hero-dissolve) blur(calc(var(--p) * 6px)); }
+
+/* Floating objects through the page (floaters.tsx): drift with --t, spin, then dissolve
+   as they leave the top of the screen. */
+.floater {
+    transform: translate3d(0, calc((0.5 - var(--t)) * var(--speed) * 1px), 0) rotate(calc(var(--t) * var(--spin)));
+    opacity: clamp(0, calc((1 - var(--t)) * 3.2), 1);
+    filter: blur(calc(max(0, var(--t) - 0.62) * 34px));
+    will-change: transform, opacity, filter;
+}
+
+/* The header: invisible over the hero, then pops in as a floating pill (header.tsx). */
+.nav-pill { transition: background-color 300ms var(--ease-out), border-color 300ms var(--ease-out), box-shadow 300ms var(--ease-out); }
+[data-solid="false"] .nav-pill { background: transparent; border-color: transparent; box-shadow: none; backdrop-filter: none; }
+[data-solid="true"] .nav-pill { animation: nav-pop 520ms cubic-bezier(0.2, 1.3, 0.35, 1) both; box-shadow: 0 18px 40px -22px oklch(0 0 0 / 0.55); }
+@keyframes nav-pop { from { transform: translateY(-14px) scale(0.94); opacity: 0.4; } to { transform: none; opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-aurora { animation: none; }
+    .hero-copy, .hero-piece, .floater { opacity: 1; transform: none; filter: none; }
+    [data-solid="true"] .nav-pill { animation: none; }
+}
+
+/* No radius anywhere (the preset's Radius: None). One rule instead of chasing every
+   rounded-* utility, so vendored components (React Bits, shadcn) stay square too.
+   The only exception is a true circle, marked .is-round (the glowing orb). */
+*, *::before, *::after { border-radius: 0 !important; }
+.is-round { border-radius: 9999px !important; }
+
+/* Home work index (work-index.tsx): a light sweep behind the hovered row, the title
+   steps right, and the cursor preview scales in. */
+.work-row::before {
+    content: ""; position: absolute; inset: 0 calc(var(--gutter) * -1); z-index: -1;
+    background: linear-gradient(90deg, color-mix(in oklch, var(--glow), transparent 88%), transparent 70%);
+    transform: scaleX(0); transform-origin: left; transition: transform 500ms var(--ease-out);
+}
+.work-row:hover::before, .work-row:focus-visible::before { transform: scaleX(1); }
+.work-title { transition: transform 500ms var(--ease-out), color 300ms; }
+.work-row:hover .work-title, .work-row:focus-visible .work-title { transform: translateX(14px); color: var(--glow); }
+.work-index { isolation: isolate; }
+.work-row[data-on] .work-title { color: var(--glow); }
+/* The sticky stage: the active project's screen fades and settles in, the rest fade out. */
+.work-stage-item { opacity: 0; transform: translateY(18px) scale(0.97); filter: blur(6px);
+    transition: opacity 500ms var(--ease-out), transform 700ms var(--ease-out), filter 500ms var(--ease-out); }
+.work-stage-item.is-on { opacity: 1; transform: none; filter: none; }
+@media (prefers-reduced-motion: reduce) {
+    .work-row::before, .work-title, .work-stage-item { transition: none; }
+    .work-stage-item { transform: none; filter: none; }
+}
