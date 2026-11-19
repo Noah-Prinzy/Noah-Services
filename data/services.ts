@@ -6,7 +6,6 @@ export const USD_RATE = 4100
 
 export type Service = {
   id: string
-  index: string
   name: string
   blurb: string
   /** Lower bound, UGX. */
@@ -24,7 +23,6 @@ export type Service = {
 export const SERVICES: Service[] = [
   {
     id: "landing-page",
-    index: "01",
     name: "Landing page",
     blurb:
       "One focused page that sells a product, event or offer and drives a single action.",
@@ -40,7 +38,6 @@ export const SERVICES: Service[] = [
   },
   {
     id: "website",
-    index: "02",
     name: "Business website",
     blurb:
       "A complete multi-page site that makes your business look established and easy to trust.",
@@ -56,7 +53,6 @@ export const SERVICES: Service[] = [
   },
   {
     id: "ecommerce",
-    index: "03",
     name: "E-commerce store",
     blurb:
       "An online store with catalogue, cart and checkout that takes Mobile Money and card.",
@@ -72,7 +68,6 @@ export const SERVICES: Service[] = [
   },
   {
     id: "app",
-    index: "04",
     name: "Web or mobile app",
     blurb:
       "Dashboards, platforms and AI products built around how your users actually work.",
@@ -88,7 +83,6 @@ export const SERVICES: Service[] = [
   },
   {
     id: "redesign",
-    index: "05",
     name: "Redesign & upgrade",
     blurb: "Modernise an existing site or app without starting over.",
     from: 1_500_000,
@@ -102,7 +96,6 @@ export const SERVICES: Service[] = [
   },
   {
     id: "care",
-    index: "06",
     name: "Care plan",
     blurb:
       "Monthly maintenance so your site or app stays fast, secure and current.",
@@ -136,22 +129,18 @@ export const BUDGET_OPTIONS = [
 
 export const PROCESS = [
   {
-    step: "01",
     name: "Sketch",
     text: "We map your goals, pages and content, and agree a fixed quote.",
   },
   {
-    step: "02",
     name: "Build",
     text: "I design and code it, with a live preview you can click through.",
   },
   {
-    step: "03",
     name: "Launch",
     text: "Domain, hosting, speed and SEO checks, then it goes live.",
   },
   {
-    step: "04",
     name: "Grow",
     text: "Care plans, updates and new features as you grow.",
   },

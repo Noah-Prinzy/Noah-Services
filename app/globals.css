@@ -127,3 +127,104 @@
     @apply font-sans;
     }
 }
+/* ---- Noah ⌬ Devs design tokens (DESIGN.md) ---- */
+:root {
+    --inverse: oklch(0.145 0 0);
+    --inverse-foreground: oklch(0.985 0 0);
+    --step-xs: 14px;
+    --step-sm: 17px;
+    --step-md: clamp(20px, 1.6vw, 24px);
+    --step-lg: clamp(40px, 5vw, 76px);
+    --step-xl: clamp(64px, 10vw, 168px);
+    --gutter: 20px;
+    --section: clamp(120px, 14vw, 200px);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (min-width: 768px) {
+    :root { --gutter: 32px; }
+}
+.dark {
+    --inverse: oklch(0.205 0 0);
+    --inverse-foreground: oklch(0.985 0 0);
+}
+
+@theme inline {
+    --color-inverse: var(--inverse);
+    --color-inverse-foreground: var(--inverse-foreground);
+}
+
+@layer base {
+    html { scroll-behavior: smooth; }
+    body { font-size: var(--step-sm); line-height: 1.55; }
+    h1, h2, h3 { font-family: var(--font-heading); }
+    :focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+}
+
+@layer components {
+    .frame { padding-inline: var(--gutter); }
+    .t-xs { font-size: var(--step-xs); line-height: 1.4; }
+    .t-sm { font-size: var(--step-sm); line-height: 1.55; }
+    .t-md { font-size: var(--step-md); line-height: 1.35; }
+    .t-lg { font-family: var(--font-heading); font-size: var(--step-lg); line-height: 0.95; letter-spacing: -0.03em; font-weight: 600; }
+    .t-xl { font-family: var(--font-heading); font-size: var(--step-xl); line-height: 0.85; letter-spacing: -0.04em; font-weight: 600; }
+    .cta {
+        display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+        height: 48px; padding-inline: 24px; font-size: var(--step-sm); font-weight: 500;
+        background: var(--primary); color: var(--primary-foreground);
+        transition: background-color 160ms var(--ease-out), transform 120ms var(--ease-out);
+    }
+    .cta:hover { background: color-mix(in oklch, var(--primary), black 8%); }
+    .cta:active { transform: translateY(1px); }
+    .link { text-underline-offset: 4px; }
+    .link:hover { text-decoration: underline; }
+    .tabular { font-variant-numeric: tabular-nums; }
+}
+
+/* Entrances: visible by default; hidden only once JS marks the page ready. */
+.js-reveal [data-reveal] { opacity: 0; transform: translateY(24px); }
+.js-reveal [data-reveal].is-in {
+    opacity: 1; transform: none;
+    transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+    transition-delay: calc(var(--i, 0) * 70ms);
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .js-reveal [data-reveal] { opacity: 1; transform: none; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Service drawings draw on (components/illustrations/service-art.tsx) */
+.draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw-on 700ms var(--ease-out) forwards; }
+@keyframes draw-on { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .draw { stroke-dashoffset: 0; animation: none; } }
+
+/* Hero: the hexagon window (components/home/hero.tsx). The JS draws the same
+   geometry in px; this calc version is the still screen without script. */
+.hero-window {
+    --hr: min(19vw, 27svh);
+    --hcy: 66svh;
+    --hk: calc(var(--hr) * 0.866);
+    clip-path: polygon(
+        calc(50% + var(--hr)) var(--hcy),
+        calc(50% + var(--hr) / 2) calc(var(--hcy) + var(--hk)),
+        calc(50% - var(--hr) / 2) calc(var(--hcy) + var(--hk)),
+        calc(50% - var(--hr)) var(--hcy),
+        calc(50% - var(--hr) / 2) calc(var(--hcy) - var(--hk)),
+        calc(50% + var(--hr) / 2) calc(var(--hcy) - var(--hk))
+    );
+}
+@media (max-width: 767px) { .hero-window { --hr: 36vw; --hcy: 70svh; } }
+.hero { height: 100svh; }
+.hero.is-live { height: 230svh; }
+.hero-caption { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+    .hero-window { clip-path: none; }
+    .hero-copy { color: var(--inverse-foreground); }
+    .hero-caption { opacity: 1; }
+}
+
+/* Process fragment state change */
+@keyframes fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+/* Start with the skyline, not the field, inside the hexagon; JS takes over the transform. */
+.hero-pic { transform: translateY(30svh) scale(1.12); }
+@media (prefers-reduced-motion: reduce) { .hero-pic { transform: none; } }
